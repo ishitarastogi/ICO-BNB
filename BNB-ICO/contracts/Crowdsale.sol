@@ -16,7 +16,7 @@ import "./BUSD.sol";
       event ICOInitialized(address beneficiary, uint256 timestamp);
     
     event Buy(address indexed investor, uint256 amount, uint256 timestamp);
-    event EthReturned(address indexed investor, uint256 amount, uint256 timestamp);
+    
 
      modifier onlyBeneficiary() 
     {
@@ -26,7 +26,6 @@ import "./BUSD.sol";
     
     constructor(
         address _tokenAddress, 
-        address _whitelistAddress,
         address payable _beneficiary,
         uint256 _bnbUSDRate 
     ) public 
@@ -34,7 +33,7 @@ import "./BUSD.sol";
         
         token = BUSD(_tokenAddress);
         beneficiary = _beneficiary;
-        bnbUSDRate = _baseEthUSDRate;
+        bnbUSDRate = _bnbUSDRate;
        
 
         emit ICOInitialized(_beneficiary, block.timestamp);
