@@ -7,7 +7,7 @@ import "./BUSD.sol";
  contract ICO {
       using SafeMath for uint256;
         BUSD private token;
-        address payable public beneficiary; // Address of the client's wallet
+        address payable public beneficiary; 
         uint256 constant START_TIME =	1620621479;
         uint256 constant END_TIME=	1621917479;
          uint256 public bnbUSDRate;
@@ -20,7 +20,7 @@ import "./BUSD.sol";
 
      modifier onlyBeneficiary() 
     {
-        require(msg.sender == beneficiary, "Unauthorised access: Not the beneficiary");
+        require(msg.sender == beneficiary, "Unauthorised access");
         _;
     }
     
@@ -28,7 +28,7 @@ import "./BUSD.sol";
         address _tokenAddress, 
         address _whitelistAddress,
         address payable _beneficiary,
-        uint256 _baseEthUSDRate // Remove this when deploying to the testnet and set the rate using oracle
+        uint256 _bnbUSDRate 
     ) public 
     {
         
